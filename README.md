@@ -2,4 +2,4 @@
 ### __Домашнее задание__
 #### __Домашнее задание__ #1  
 
-[https://github.com/Astiya/datavis.homeworks/blob/master/hw1/index.html](./blob/master/hw1/index.html)
+https://github.com/Astiya/datavis.homeworks/blob/master/hw1/index.html
