@@ -54,6 +54,7 @@ d3.select('#OSx').selectAll('option')
 .text(function(d)
 {return d});
 d3.select('#OSx').selectAll('option').nodes()[0].selected = true;
+
 loadData().then(data => {
 
     console.log(data)
@@ -104,6 +105,7 @@ loadData().then(data => {
         OSy.domain([d3.min(yRange), d3.max(yRange)]);
 
         yAxis.call(d3.axisBottom(OSy));
+		
         
         // Part 2: реализуйте обновление шкалы радиуса
          let rRange = data.map(d=> +d[radius][year]);
