@@ -76,7 +76,14 @@ loadData().then(data => {
     }
 
     function newRadius(){
-        // Part 2: задайте логику обработки по аналогии с newYear
+		radius = this.value;
+        updateChart()
+    }
+	function newOSx(){
+		radius = this.value;
+        updateChart()
+    }
+	function newOSy(){
 		radius = this.value;
         updateChart()
     }
