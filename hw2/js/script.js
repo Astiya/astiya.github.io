@@ -80,11 +80,11 @@ loadData().then(data => {
         updateChart()
     }
 	function newOSx(){
-		radius = this.value;
+		xParam = this.value;
         updateChart()
     }
 	function newOSy(){
-		radius = this.value;
+		yParam = this.value;
         updateChart()
     }
     function updateChart(){
