@@ -53,7 +53,7 @@ d3.select('#OSx').selectAll('option')
 .append('option')
 .text(function(d)
 {return d});
-d3.select('#OSx').selectAll('option').nodes()[0].selected = true;
+
 
 loadData().then(data => {
 
