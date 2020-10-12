@@ -60,7 +60,10 @@ loadData().then(data => {
     console.log(data)
 
     // Part 2: получитe все уникальные значения из поля 'region' при помощи d3.nest и установите их как 'domain' цветовой шкалы
-    let regions = d3.nest().key(function(d){return d['region'];}).entries(data).map(d=>d.key);
+    let regions = d3.nest().key(function(d)
+	{return d['region'];})
+	.entries(data)
+	.map(d=>d.key);
     color.domain(regions);
 
     d3.select('.slider').on('change', newYear);
