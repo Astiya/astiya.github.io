@@ -1,7 +1,7 @@
 const width = 1000;
 const height = 500;
 const margin = 30;
-const svg  = d3.select('#scatter-plot')
+const svg  = d3.select('svg')
             .attr('width', width)
             .attr('height', height);
 
