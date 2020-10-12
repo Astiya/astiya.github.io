@@ -1,4 +1,3 @@
-import * as d3 from 'd3'
 
 const width = 1000;
 const height = 500;
