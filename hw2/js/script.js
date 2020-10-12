@@ -22,7 +22,7 @@ const yLable = svg.append('text').attr('transform', `translate(${margin/2}, ${he
 
 // Part 1: задайте атрибуты 'transform' для осей
 const xAxis = svg.append('g').attr('transform', `translate(0, ${height-margin})`);
-const yAxis = svg.append('g').attr('transform', `translate(${height-margin}, 0`);
+const yAxis = svg.append('g').attr('transform', `translate(${margin+margin}, 0`);
 
 
 // Part 2: Шкалы для цвета и радиуса объектов
@@ -46,13 +46,14 @@ d3.select('#OSy').selectAll('option')
 .append('option')
 .text(function(d)
 {return d});
+d3.select('#OSy').selectAll('option').nodes()[0].selected = true;
 d3.select('#OSx').selectAll('option')
 .data(params)
 .enter()
 .append('option')
 .text(function(d)
 {return d});
-
+d3.select('#OSx').selectAll('option').nodes()[0].selected = true;
 loadData().then(data => {
 
     console.log(data)
