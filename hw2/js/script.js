@@ -119,7 +119,10 @@ loadData().then(data => {
         // xAxis.call(d3.axisBottom(r));
 
         // Part 1, 2: реализуйте создание и обновление состояния точек
-        // svg.selectAll('circle').data(data)
+        svg.selectAll('circle').data(data)
+		.join('circle')
+		.attr("cx",function(d) {
+        return +d[xParam][year]);
         //     ...
     }
     
