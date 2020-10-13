@@ -47,7 +47,7 @@ d3.select('#OSy').selectAll('option')
 .append('option')
 .text(function(d)
 {return d});
-// d3.select('#OSy').selectAll('option').nodes()[1].selected = true;
+d3.select('#OSy').selectAll('option').nodes()[1].selected = true;
 
 d3.select('#OSx').selectAll('option')
 .data(params)
