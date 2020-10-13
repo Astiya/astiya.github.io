@@ -65,6 +65,7 @@ loadData().then(data => {
 	{return d['region'];})
 	.entries(data)
 	.map(d=>d.key);
+	
     color.domain(regions);
 
     d3.select('.slider').on('change', newYear);
