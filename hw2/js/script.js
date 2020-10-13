@@ -15,8 +15,8 @@ const params = ['child-mortality', 'fertility-rate', 'gdp', 'life-expectancy', '
 const colors = ['aqua', 'lime', 'gold', 'hotpink'];
 
 // Шкалы для осей и окружностей
-const OSx = d3.scaleLinear().range([margin*2, width-margin]);
-const OSy = d3.scaleLinear().range([height-margin, margin]);
+const x = d3.scaleLinear().range([margin*2, width-margin]);
+const y = d3.scaleLinear().range([height-margin, margin]);
 
 const xLable = svg.append('text').attr('transform', `translate(${width/2}, ${height})`);
 const yLable = svg.append('text').attr('transform', `translate(${margin/2}, ${height/2}) rotate(-90)`);
@@ -48,6 +48,7 @@ d3.select('#OSy').selectAll('option')
 .text(function(d)
 {return d});
 d3.select('#OSy').selectAll('option').nodes()[1].selected = true;
+
 d3.select('#OSx').selectAll('option')
 .data(params)
 .enter()
@@ -101,15 +102,15 @@ loadData().then(data => {
 
         // поскольку значения показателей изначально представленны в строчном формате преобразуем их в Number при помощи +
         let xRange = data.map(d=> +d[xParam][year]);
-        OSx.domain([d3.min(xRange), d3.max(xRange)]);
+        x.domain([d3.min(xRange), d3.max(xRange)]);
 
-        xAxis.call(d3.axisBottom(OSx));    
+        xAxis.call(d3.axisBottom(x));    
 
         // Part 1: реализуйте отображение оси 'y'
          let yRange = data.map(d=> +d[yParam][year]);
-        OSy.domain([d3.min(yRange), d3.max(yRange)]);
+        y.domain([d3.min(yRange), d3.max(yRange)]);
 
-        yAxis.call(d3.axisBottom(OSy));
+        yAxis.call(d3.axisBottom(y));
 		
         
         // Part 2: реализуйте обновление шкалы радиуса
