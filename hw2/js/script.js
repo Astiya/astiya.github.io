@@ -120,10 +120,17 @@ loadData().then(data => {
         // xAxis.call(d3.axisBottom(r));
 
         // Part 1, 2: реализуйте создание и обновление состояния точек
-        /* svg.selectAll('circle').data(data)
+        svg.selectAll('circle').data(data)
 		.join('circle')
 		.attr("cx",function(d) {
-        return +d[xParam][year]); */
+        return +d[xParam][year]);
+		}).attr("cy",function(d) {
+        return +d[yParam][year]);
+		}).attr("r",function(d) {
+        return +d[radius][radius]);
+		}).style('fill',function(d){
+			return colors[regions.findIndex(r=> r==d['regions'])]
+		});
         //     ...
     }
     
