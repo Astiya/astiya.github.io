@@ -119,20 +119,20 @@ loadData().then(data => {
 
         // xAxis.call(d3.axisBottom(r));
 
-        Part 1, 2: реализуйте создание и обновление состояния точек
-        svg.selectAll('circle').data(data)
-		.enter()
-		.append('circle')
-		.attr("cx",function(d) {
-        return +x[xParam][year]);
-		}).attr("cy",function(d) {
-        return +y[yParam][year]);
-		}).attr("r",function(d) {
-        return +r[radius][radius]);
-		}).style('fill',function(d){
-			return colors[regions.findIndex(r=> r==d['region'])]
-		});
-            ...
+        // Part 1, 2: реализуйте создание и обновление состояния точек
+        // svg.selectAll('circle').data(data)
+		// .enter()
+		// .append('circle')
+		// .attr("cx",function(d) {
+        // return +x[xParam][year]);
+		// }).attr("cy",function(d) {
+        // return +y[yParam][year]);
+		// }).attr("r",function(d) {
+        // return +r[radius][radius]);
+		// }).style('fill',function(d){
+			// return colors[regions.findIndex(r=> r==d['region'])]
+		// });
+            // ...
     }
     
     updateChart();
