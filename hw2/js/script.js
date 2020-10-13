@@ -101,20 +101,20 @@ loadData().then(data => {
         d3.select('.year').text(year);
 
         // поскольку значения показателей изначально представленны в строчном формате преобразуем их в Number при помощи +
-        let xRange = data.map(d=> +d[xParam][year]);
+        let xRange = data.map(d=> +x[xParam][year]);
         x.domain([d3.min(xRange), d3.max(xRange)]);
 
         xAxis.call(d3.axisBottom(x));    
 
         // Part 1: реализуйте отображение оси 'y'
-         let yRange = data.map(d=> +d[yParam][year]);
+         let yRange = data.map(d=> +y[yParam][year]);
         y.domain([d3.min(yRange), d3.max(yRange)]);
 
         yAxis.call(d3.axisBottom(y));
 		
         
         // Part 2: реализуйте обновление шкалы радиуса
-         let rRange = data.map(d=> +d[radius][year]);
+         let rRange = data.map(d=> +r[radius][year]);
         r.domain([d3.min(yRange), d3.max(rRange)]);
 
         // xAxis.call(d3.axisBottom(r));
