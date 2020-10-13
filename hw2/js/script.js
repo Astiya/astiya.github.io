@@ -47,7 +47,7 @@ d3.select('#OSy').selectAll('option')
 .append('option')
 .text(function(d)
 {return d});
-d3.select('#OSy').selectAll('option').nodes()[1].selected = true;
+// d3.select('#OSy').selectAll('option').nodes()[1].selected = true;
 
 d3.select('#OSx').selectAll('option')
 .data(params)
@@ -129,8 +129,8 @@ loadData().then(data => {
         return +y[yParam][year]);
 		}).attr("r",function(d) {
         return +r[radius][radius]);
-		}).attr("fill",function(d){
-			return color(d["region"]);
+		}).style('fill',function(d){
+			return colors[regions.findIndex(r=> r==d['region'])]
 		});
         //     ...
     }
