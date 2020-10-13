@@ -107,10 +107,10 @@ loadData().then(data => {
         xAxis.call(d3.axisBottom(x));    
 
         // Part 1: реализуйте отображение оси 'y'
-         let yRange = data.map(d=> +y[yParam][year]);
-        y.domain([d3.min(yRange), d3.max(yRange)]);
+         // let yRange = data.map(d=> +y[yParam][year]);
+        // y.domain([d3.min(yRange), d3.max(yRange)]);
 
-        yAxis.call(d3.axisBottom(y));
+        // yAxis.call(d3.axisBottom(y));
 		
         
         // Part 2: реализуйте обновление шкалы радиуса
