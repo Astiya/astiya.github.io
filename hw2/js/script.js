@@ -12,7 +12,7 @@ let radius = 'gdp';
 let year = '2000';
 
 const params = ['child-mortality', 'fertility-rate', 'gdp', 'life-expectancy', 'population'];
-const colors = ['aqua', 'lime', 'gold', 'hotpink']
+const colors = ['aqua', 'lime', 'gold', 'hotpink'];
 
 // Шкалы для осей и окружностей
 const OSx = d3.scaleLinear().range([margin*2, width-margin]);
@@ -27,7 +27,7 @@ const yAxis = svg.append('g').attr('transform', `translate(${margin}, 0`);
 
 
 // Part 2: Шкалы для цвета и радиуса объектов
-const color = d3.scaleOrdinal();
+const color = d3.scaleOrdinal(colors);
 const r = d3.scaleSqrt();
 
 // Part 2: для элемента select задайте options (http://htmlbook.ru/html/select) и установить selected для начального значения
