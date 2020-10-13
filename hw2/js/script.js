@@ -22,7 +22,7 @@ const xLable = svg.append('text').attr('transform', `translate(${width/2}, ${hei
 const yLable = svg.append('text').attr('transform', `translate(${margin/2}, ${height/2}) rotate(-90)`);
 
 // Part 1: задайте атрибуты 'transform' для осей
-const xAxis = svg.append('g').attr('transform', `translate(0, ${height-50})`);
+const xAxis = svg.append('g').attr('transform', `translate(0, ${height-margin})`);
 const yAxis = svg.append('g').attr('transform', `translate(${margin*2}, 0`);
 
 
