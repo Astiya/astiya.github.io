@@ -9,7 +9,7 @@ const svg  = d3.select('#scatter-plot')
 let xParam = 'fertility-rate';
 let yParam = 'child-mortality';
 let radius = 'gdp';
-let year = '2000';
+let year = '2001';
 
 const params = ['child-mortality', 'fertility-rate', 'gdp', 'life-expectancy', 'population'];
 const colors = ['aqua', 'lime', 'gold', 'hotpink'];
