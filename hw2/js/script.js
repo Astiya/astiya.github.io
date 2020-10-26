@@ -5,8 +5,8 @@ const margin = 30;
 const svg = d3.select('#scatter-plot').attr('width', width).attr('height', height);
 
 let xParam = 'fertility-rate';
-let yParam = 'child-mortality';
-let radius = 'gdp';
+let yParam = 'fertility-rate';
+let radius = 'fertility-rate';
 let year = '2001';
 
 const params = ['child-mortality', 'fertility-rate', 'gdp', 'life-expectancy', 'population'];
@@ -57,14 +57,12 @@ d3.select('#x').selectAll('option').nodes()[1].selected = true;
 
 loadData().then(data => {
 
-    // console.log(data)
-
+    
     // Part 2: получитe все уникальные значения из поля 'region' при помощи d3.nest и установите их как 'domain' цветовой шкалы
     
 	let regions = d3.nest().key(function(d)
 	{return d['region'];})
-	.entries(data)
-	.map(d=>d.key);
+	.entries(data);
 	// console.log(regions);
     color.domain(regions);
 
