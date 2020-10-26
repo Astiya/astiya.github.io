@@ -60,7 +60,7 @@ loadData().then(data => {
     // console.log(data)
 
     // Part 2: получитe все уникальные значения из поля 'region' при помощи d3.nest и установите их как 'domain' цветовой шкалы
-    console.log(regions);
+    
 	let regions = d3.nest().key(function(d)
 	{return d['region'];})
 	.entries(data)
