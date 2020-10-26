@@ -5,9 +5,9 @@ const margin = 30;
 const svg = d3.select('#scatter-plot').attr('width', width).attr('height', height);
 
 let xParam = 'fertility-rate';
-let yParam = 'fertility-rate';
-let radius = 'fertility-rate';
-let year = '2001';
+let yParam = 'child-mortality';
+let radius = 'gdp';
+let year = '1997';
 
 const params = ['child-mortality', 'fertility-rate', 'gdp', 'life-expectancy', 'population'];
 const colors = ['aqua', 'lime', 'gold', 'hotpink'];
@@ -25,8 +25,8 @@ const yAxis = svg.append('g').attr('transform', `translate(${margin*2}, 0) rotat
 
 
 // Part 2: Шкалы для цвета и радиуса объектов
-const color = d3.scaleOrdinal(colors);
-const r = d3.scaleSqrt().range([1,5]);
+const color = d3.scaleOrdinal();
+const r = d3.scaleSqrt().range([1,10]);
 
 // Part 2: для элемента select задайте options (http://htmlbook.ru/html/select) и установить selected для начального значения
 d3.select('#radius').selectAll('option')
