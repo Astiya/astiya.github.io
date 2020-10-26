@@ -9,7 +9,7 @@ body{
 }
 circle {
     /* Part 2: это селектор будет перекрывать атрибут fill при попытке раскрасить объекты */
-    fill: #d9d9d9;
+    /* fill: #d9d9d9; */
 
     stroke: gray;
     opacity: .8;
