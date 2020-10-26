@@ -4,9 +4,9 @@ const height = 500;
 const margin = 30;
 const svg = d3.select('#scatter-plot').attr('width', width).attr('height', height);
 
-let xParam = 'fertility-rate';
+let xParam = 'child-mortality';
 let yParam = 'child-mortality';
-let radius = 'gdp';
+let radius = 'child-mortality';
 let year = '1997';
 
 const params = ['child-mortality', 'fertility-rate', 'gdp', 'life-expectancy', 'population'];
