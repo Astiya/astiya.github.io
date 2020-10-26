@@ -60,8 +60,8 @@ loadData().then(data => {
     
     // Part 2: получитe все уникальные значения из поля 'region' при помощи d3.nest и установите их как 'domain' цветовой шкалы
     
-	let regions = d3.nest().key(function(d){return d['region'];}).entries(data).map(d=>d.key);
-	console.log(regions);
+	let regions = d3.nest().key(function(d){return d['region'];}).entries(data);
+	
     color.domain(regions);
 
     d3.select('.slider').on('change', newYear);
@@ -124,9 +124,9 @@ loadData().then(data => {
 		}).attr("cy",function(d) {
         return y(+d[yParam][year]);
 		}).attr("r",function(d) {
-        return r(+d[radius][radius]);
-		}).style('fill',function(d){
-			return colors[regions.findIndex(r=> r==d['region'])]
+        return r(+d[radius][year]);
+		}).attr('fill',function(d){
+			return color(d['region']);
 		});
          
     }
