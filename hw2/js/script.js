@@ -41,21 +41,21 @@ d3.select('#radius').selectAll('option').nodes()[0].selected = true;
 
 
 // Part 3: select с options для осей
-d3.select('#OSy').selectAll('option')
+d3.select('#y').selectAll('option')
 .data(params)
 .enter()
 .append('option')
 .text(function(d)
 {return d});
-d3.select('#OSy').selectAll('option').nodes()[1].selected = true;
+d3.select('#y').selectAll('option').nodes()[1].selected = true;
 
-d3.select('#OSx').selectAll('option')
+d3.select('#x').selectAll('option')
 .data(params)
 .enter()
 .append('option')
 .text(function(d)
 {return d});
-d3.select('#OSx').selectAll('option').nodes()[2].selected = true;
+d3.select('#x').selectAll('option').nodes()[2].selected = true;
 
 loadData().then(data => {
 
@@ -66,7 +66,7 @@ loadData().then(data => {
 	{return d['region'];})
 	.entries(data)
 	.map(d=>d.key);
-	
+	console.log(regions);
     color.domain(regions);
 
     d3.select('.slider').on('change', newYear);
@@ -74,9 +74,9 @@ loadData().then(data => {
     d3.select('#radius').on('change', newRadius);
 
     // Part 3: подпишитесь на изменения селекторов параметров осей
-    d3.select('#OSx').on('change', newOSx);
+    d3.select('#x').on('change', newOSx);
 
-    d3.select('#OSy').on('change', newOSy);
+    d3.select('#y').on('change', newOSy);
 
     function newYear(){
         year = this.value;
@@ -107,7 +107,7 @@ loadData().then(data => {
         xAxis.call(d3.axisBottom(x));    
 
         // Part 1: реализуйте отображение оси 'y'
-         let yRange = data.map(d=> +y[yParam][year]);
+         let yRange = data.map(d=> +d[yParam][year]);
         y.domain([d3.min(yRange), d3.max(yRange)]);
 
         yAxis.call(d3.axisBottom(y));
