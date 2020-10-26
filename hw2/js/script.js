@@ -35,7 +35,7 @@ d3.select('#radius').selectAll('option')
 .append('option')
 .text(function(r)
 {return r});
-d3.select('#radius').selectAll('option').nodes()[1].selected = true;
+d3.select('#radius').selectAll('option').nodes()[0].selected = true;
 
 
 // Part 3: select с options для осей
