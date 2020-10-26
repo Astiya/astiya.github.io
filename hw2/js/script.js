@@ -45,7 +45,7 @@ d3.select('#y').selectAll('option')
 .append('option')
 .text(function(y)
 {return y});
-// d3.select('#y').selectAll('option').nodes()[1].selected = true;
+d3.select('#y').selectAll('option').nodes()[1].selected = true;
 
 d3.select('#x').selectAll('option')
 .data(params)
@@ -53,7 +53,7 @@ d3.select('#x').selectAll('option')
 .append('option')
 .text(function(x)
 {return x});
-d3.select('#x').selectAll('option').nodes()[1].selected = true;
+d3.select('#x').selectAll('option').nodes()[0].selected = true;
 
 loadData().then(data => {
 
