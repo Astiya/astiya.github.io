@@ -7,7 +7,7 @@ const svg = d3.select('#scatter-plot').attr('width', width).attr('height', heigh
 let xParam = 'child-mortality';
 let yParam = 'child-mortality';
 let radius = 'child-mortality';
-let year = '2000';
+let year = '1997';
 
 const params = ['child-mortality', 'fertility-rate', 'gdp', 'life-expectancy', 'population'];
 const colors = ['aqua', 'lime', 'gold', 'hotpink'];
@@ -33,8 +33,8 @@ d3.select('#radius').selectAll('option')
 .data(params)
 .enter()
 .append('option')
-.text(function(d)
-{return d});
+.text(function(r)
+{return r});
 d3.select('#radius').selectAll('option').nodes()[1].selected = true;
 
 
@@ -43,16 +43,16 @@ d3.select('#y').selectAll('option')
 .data(params)
 .enter()
 .append('option')
-.text(function(d)
-{return d});
-d3.select('#y').selectAll('option').nodes()[1].selected = true;
+.text(function(y)
+{return y});
+// d3.select('#y').selectAll('option').nodes()[1].selected = true;
 
 d3.select('#x').selectAll('option')
 .data(params)
 .enter()
 .append('option')
-.text(function(d)
-{return d});
+.text(function(x)
+{return x});
 d3.select('#x').selectAll('option').nodes()[1].selected = true;
 
 loadData().then(data => {
