@@ -26,7 +26,7 @@ const yAxis = svg.append('g').attr('transform', `translate(${margin*2}, 0) rotat
 
 // Part 2: Шкалы для цвета и радиуса объектов
 const color = d3.scaleOrdinal(colors);
-const r = d3.scaleSqrt().range([1,5]);
+const r = d3.scaleSqrt().range([1,30]);
 
 // Part 2: для элемента select задайте options (http://htmlbook.ru/html/select) и установить selected для начального значения
 d3.select('#radius').selectAll('option')
@@ -35,7 +35,7 @@ d3.select('#radius').selectAll('option')
 .append('option')
 .text(function(d)
 {return d});
-d3.select('#radius').selectAll('option').nodes()[0].selected = true;
+d3.select('#radius').selectAll('option').nodes()[2].selected = true;
 
 
 // Part 3: select с options для осей
@@ -53,7 +53,7 @@ d3.select('#x').selectAll('option')
 .append('option')
 .text(function(d)
 {return d});
-d3.select('#x').selectAll('option').nodes()[0].selected = true;
+d3.select('#x').selectAll('option').nodes()[2].selected = true;
 
 loadData().then(data => {
 
