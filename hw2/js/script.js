@@ -26,7 +26,7 @@ const yAxis = svg.append('g').attr('transform', `translate(${margin*2}, 0) rotat
 
 // Part 2: Шкалы для цвета и радиуса объектов
 const color = d3.scaleOrdinal(colors);
-const r = d3.scaleSqrt();
+const r = d3.scaleSqrt().range([1,5]);
 
 // Part 2: для элемента select задайте options (http://htmlbook.ru/html/select) и установить selected для начального значения
 d3.select('#radius').selectAll('option')
@@ -45,7 +45,7 @@ d3.select('#y').selectAll('option')
 .append('option')
 .text(function(d)
 {return d});
-d3.select('#y').selectAll('option').nodes()[2].selected = true;
+d3.select('#y').selectAll('option').nodes()[0].selected = true;
 
 d3.select('#x').selectAll('option')
 .data(params)
@@ -53,17 +53,16 @@ d3.select('#x').selectAll('option')
 .append('option')
 .text(function(d)
 {return d});
-d3.select('#x').selectAll('option').nodes()[1].selected = true;
+d3.select('#x').selectAll('option').nodes()[0].selected = true;
 
 loadData().then(data => {
 
     
     // Part 2: получитe все уникальные значения из поля 'region' при помощи d3.nest и установите их как 'domain' цветовой шкалы
     
-	let regions = d3.nest().key(function(d)
-	{return d['region'];})
+	let regions = d3.nest().key(function(d){return d['region'];})
 	.entries(data);
-	// console.log(regions);
+	console.log(regions);
     color.domain(regions);
 
     d3.select('.slider').on('change', newYear);
@@ -112,7 +111,7 @@ loadData().then(data => {
 		
         
         // Part 2: реализуйте обновление шкалы радиуса
-         let rRange = data.map(d=> +r[radius][year]);
+         let rRange = data.map(d=> +d[radius][year]);
         r.domain([d3.min(yRange), d3.max(rRange)]);
 
         // xAxis.call(d3.axisBottom(r));
