@@ -2,9 +2,7 @@
 const width = 1000;
 const height = 500;
 const margin = 30;
-const svg  = d3.select('#scatter-plot')
-            .attr('width', width)
-            .attr('height', height);
+const svg = d3.select('#scatter-plot').attr('width', width).attr('height', height);
 
 let xParam = 'fertility-rate';
 let yParam = 'child-mortality';
