@@ -57,14 +57,15 @@ d3.select('#x').selectAll('option').nodes()[1].selected = true;
 
 loadData().then(data => {
 
-    console.log(data)
+    // console.log(data)
 
     // Part 2: получитe все уникальные значения из поля 'region' при помощи d3.nest и установите их как 'domain' цветовой шкалы
-    let regions = d3.nest().key(function(d)
+    console.log(regions);
+	let regions = d3.nest().key(function(d)
 	{return d['region'];})
 	.entries(data)
 	.map(d=>d.key);
-	console.log(regions);
+	// console.log(regions);
     color.domain(regions);
 
     d3.select('.slider').on('change', newYear);
