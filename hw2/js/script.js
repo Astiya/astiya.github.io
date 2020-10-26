@@ -91,7 +91,7 @@ loadData().then(data => {
         updateChart()
     }
     function updateChart(){
-		// svg.selectAll('circle').remove()
+		svg.selectAll('circle').remove()
         xLable.text(xParam);
         yLable.text(yParam);
         d3.select('.year').text(year);
