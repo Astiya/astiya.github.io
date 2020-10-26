@@ -47,7 +47,7 @@ d3.select('#y').selectAll('option')
 .append('option')
 .text(function(d)
 {return d});
-d3.select('#y').selectAll('option').nodes()[1].selected = true;
+d3.select('#y').selectAll('option').nodes()[2].selected = true;
 
 d3.select('#x').selectAll('option')
 .data(params)
@@ -55,7 +55,7 @@ d3.select('#x').selectAll('option')
 .append('option')
 .text(function(d)
 {return d});
-d3.select('#x').selectAll('option').nodes()[2].selected = true;
+d3.select('#x').selectAll('option').nodes()[1].selected = true;
 
 loadData().then(data => {
 
@@ -74,9 +74,9 @@ loadData().then(data => {
     d3.select('#radius').on('change', newRadius);
 
     // Part 3: подпишитесь на изменения селекторов параметров осей
-    d3.select('#x').on('change', newOSx);
+    d3.select('#x').on('change', newx);
 
-    d3.select('#y').on('change', newOSy);
+    d3.select('#y').on('change', newy);
 
     function newYear(){
         year = this.value;
@@ -87,15 +87,16 @@ loadData().then(data => {
 		radius = this.value;
         updateChart()
     }
-	function newOSx(){
+	function newx(){
 		xParam = this.value;
         updateChart()
     }
-	function newOSy(){
+	function newy(){
 		yParam = this.value;
         updateChart()
     }
     function updateChart(){
+		svg.selectAll('circle').remove()
         xLable.text(xParam);
         yLable.text(yParam);
         d3.select('.year').text(year);
@@ -124,15 +125,15 @@ loadData().then(data => {
 		.enter()
 		.append('circle')
 		.attr("cx",function(d) {
-        return +x[xParam][year]);
+        return x(+d[xParam][year]);
 		}).attr("cy",function(d) {
-        return +y[yParam][year]);
+        return y(+d[yParam][year]);
 		}).attr("r",function(d) {
-        return +r[radius][radius]);
+        return r(+d[radius][radius]);
 		}).style('fill',function(d){
 			return colors[regions.findIndex(r=> r==d['region'])]
 		});
-            // ...
+         
     }
     
     updateChart();
