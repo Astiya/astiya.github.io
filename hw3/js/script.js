@@ -43,10 +43,10 @@ d3.csv('data/netflix.csv').then(data=>{
     
     
     // Part 1 - задайте domain  для шкал
-	console.log(ratings);
+	// console.log(ratings);
     color.domain(ratings);
     x.domain([d3.min(years), d3.max(years)]);
-	radius.domain([d3.min(ratings), d3.max(ratings)]);
+	radius.domain([d3.min(rating), d3.max(rating)]);
     // Part 1 - создайте circles на основе data
 
     // Part 1 - передайте данные в симуляцию и добавьте обработчик события tick
