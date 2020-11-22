@@ -26,8 +26,11 @@ const donut_lable = d3.select('.donut-chart').append('text')
 const tooltip = d3.select('.tooltip');
 
 //  Part 1 - Создайте симуляцию с использованием forceCenter, forceX и forceCollide
-const simulation = d3.forceSimulation()
-    // ..
+   const simulation = d3.forceSimulation(data)
+  .force('center', d3.forceCenter(b_width / 2, b_height / 2))
+  .force('x', d3.forceX(d){ return x(+d['release year']);})
+  .force('collision', d3.forceCollide(d){ return x(+d['release year']);})
+  .on('tick', ticked);
 
 
 d3.csv('data/netflix.csv').then(data=>{
@@ -45,25 +48,47 @@ d3.csv('data/netflix.csv').then(data=>{
     x.domain([d3.min(years), d3.max(years)]);
 	radius.domain([d3.min(ratings), d3.max(ratings)]);
     // Part 1 - создайте circles на основе data
+
+    // Part 1 - передайте данные в симуляцию и добавьте обработчик события tick
+    function ticked() {
     var nodes = bubble
         .selectAll("circle")
-        // ..
-    // добавьте обработчики событий mouseover и mouseout
+		.data(data)
+  // function ticked() {
+  // var u = d3.select('svg')
+    // .selectAll('circle')
+    // .data(data)
+
+  nodes.enter()
+    .append('circle')
+	.attr("r", function(d) { return radius(d['user rating score']); })
+	.attr("fill", function(d) { return color(d["rating"]); })
+    .merge(nodes)
+    .attr('cx', function(d) {
+      return d.x
+    })
+    .attr('cy', function(d) {
+      return d.y
+    })
+	.attr('stroke', 'gray')
+    .style('stroke-width', '0px')
+	 // добавьте обработчики событий mouseover и mouseout
             // .on('mouseover', overBubble)
             // .on('mouseout', outOfBubble);
-
-    
-    // Part 1 - передайте данные в симуляцию и добавьте обработчик события tick
-    // ..
-
-
+    .on('mouseover', overBubble)
+    .on('mouseout', outOfBubble)
+	
+  nodes.exit().remove()
+}
 
 
     // Part 1 - Создайте шаблон при помощи d3.pie на основе ratings
-    // ..
+    var pie = d3.layout.pie()
+    .value(function(d) { return d.value; });
     
     // Part 1 - Создайте генератор арок при помощи d3.arc
-    // ..
+    var arc = d3.svg.arc()
+    .outerRadius(100).innerRadius(140);;
     
     // Part 1 - постройте donut chart внутри donut
     // ..
