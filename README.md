@@ -4,5 +4,5 @@
 https://astiya.github.io/hw1/index.html
 #### __Домашнее задание__ #2
 https://astiya.github.io/hw2/index.html
-#### __Домашнее задание__ #2
+#### __Домашнее задание__ #3
 https://astiya.github.io/hw3/index.html
