@@ -167,7 +167,7 @@ d3.csv('data/netflix.csv').then(data=>{
         // Part 3 - измените opacity, stroke и stroke-width для circles в зависимости от rating
         bubble.selectAll('circle')
             .style('opacity', function(d) {
-                if (d.rating == d.data.value.key) 
+                if (d.rating == d.value.value) 
 				{ 
 				   return '1'; 
 				} 
@@ -178,7 +178,7 @@ d3.csv('data/netflix.csv').then(data=>{
               }
             )
             .style('stroke', function(d) {
-                if (d.rating == d.data.value.key) 
+                if (d.rating == d.value.value) 
 				{ 
 				   return 'white'; 
 				} 
@@ -189,7 +189,7 @@ d3.csv('data/netflix.csv').then(data=>{
               }
             )
             .style('stroke-width', function(d) {
-                if (d.rating == d.data.value.key) 
+                if (d.rating == d.value.value) 
 				{ 
 				   return '5px'; 
 				} 
