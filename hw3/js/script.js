@@ -129,7 +129,7 @@ d3.csv('data/netflix.csv').then(data=>{
     }
     function outOfBubble(){
         // Part 2 - обнулите stroke и stroke-width
-        // ..
+        d3.select(this).style('stroke-width', '0px');
             
         // Part 3 - измените display у tooltip
         // ..
