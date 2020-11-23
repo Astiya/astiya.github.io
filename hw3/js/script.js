@@ -132,7 +132,11 @@ d3.csv('data/netflix.csv').then(data=>{
           d['title'] + 
           "</b>" + 
           "<br/>" + 
-          d['release year']
+          d['release year'] + 
+          "</b>" + 
+          "<br/>" + 
+          d['ratingLevel']
+		  	
         )
         // Part 3 - измените display и позицию tooltip
         tooltip
