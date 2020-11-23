@@ -177,28 +177,28 @@ d3.csv('data/netflix.csv').then(data=>{
 				}
               }
             )
-            .style('stroke', function(d) {
-                if (d.rating == d.value.value) 
-				{ 
-				   return 'white'; 
-				} 
-				else 
-				{ 
-				   return ''; 
-				}
-              }
-            )
-            .style('stroke-width', function(d) {
-                if (d.rating == d.value.value) 
-				{ 
-				   return '5px'; 
-				} 
-				else 
-				{ 
-				   return '0px'; 
-				}
-              }
-            );		
+            // .style('stroke', function(d) {
+                // if (d.rating == d.value.value) 
+				// { 
+				   // return 'white'; 
+				// } 
+				// else 
+				// { 
+				   // return ''; 
+				// }
+              // }
+            // )
+            // .style('stroke-width', function(d) {
+                // if (d.rating == d.value.value) 
+				// { 
+				   // return '5px'; 
+				// } 
+				// else 
+				// { 
+				   // return '0px'; 
+				// }
+              // }
+            // );		
 			
     }
     function outOfArc(){
@@ -210,7 +210,7 @@ d3.csv('data/netflix.csv').then(data=>{
         // Part 3 - верните opacity, stroke и stroke-width для circles
         bubble.selectAll('circle')
 		.style('opacity', '1')
-		.style('stroke', '')
-		.style('stroke-width', '0px');
+		// .style('stroke', '')
+		// .style('stroke-width', '0px');
     }
 });
