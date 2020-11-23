@@ -8,7 +8,7 @@ const colors = [
     '#fdbf6f','#ff7f00','#cab2d6',
     '#6a3d9a','#ffff99','#b15928']
 
-const radius = d3.scaleLinear().range([.5, 20]);
+const radius = d3.scaleLinear().range([0.5, 20]);
 const color = d3.scaleOrdinal().range(colors);
 const x = d3.scaleLinear().range([0, b_width]);
 
@@ -89,7 +89,7 @@ d3.csv('data/netflix.csv').then(data=>{
    /*  var pathData = rcGenerator({
 	startAngle: 0,
 	endAngle: Math.PI / 4 */
-});
+// });
     // Part 1 - постройте donut chart внутри donut
     // ..
 	var pie_ratings = pie(d3.entries(ratings))
