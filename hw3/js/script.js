@@ -29,7 +29,7 @@ const tooltip = d3.select('.tooltip');
    const simulation = d3.forceSimulation(nodes)
   .force('center', d3.forceCenter(b_width / 2, b_height / 2))
   .force('x', d3.forceX().x(function(d){ return x(+d['release year']);}))
-  .force('collision', d3.forceCollide().radius(function(d){ return radius(d['user rating score']);})
+  .force('collision', d3.forceCollide().radius(function(d){ return radius(d['user rating score']);}))
   .on('tick', ticked);
 
 
