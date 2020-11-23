@@ -111,7 +111,7 @@ d3.csv('data/netflix.csv').then(data=>{
       .attr('d', arcGenerator)
       .attr('fill', function(d) { return(color(d.data.value.key)) })
       .attr("stroke", "black")
-      .style("stroke-width", "2px")
+      .style("stroke-width", "4px")
       .style("opacity", '1')
       .on('mouseover', overArc)
       .on('mouseout', outOfArc);
