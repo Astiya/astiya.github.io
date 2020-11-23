@@ -145,6 +145,8 @@ d3.csv('data/netflix.csv').then(data=>{
             
         // Part 3 - измените display у tooltip
         tooltip
+		.style("top", (d.y - 90) + "px") 
+        .style("left", d.x  + "px") 
         .style('display', 'none')
     }
 
