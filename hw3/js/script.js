@@ -26,10 +26,10 @@ const donut_lable = d3.select('.donut-chart').append('text')
 const tooltip = d3.select('.tooltip');
 
 //  Part 1 - Создайте симуляцию с использованием forceCenter, forceX и forceCollide
-   const simulation = d3.forceSimulation(data)
+   const simulation = d3.forceSimulation(nodes)
   .force('center', d3.forceCenter(b_width / 2, b_height / 2))
   .force('x', d3.forceX(d){ return x(+d['release year']);})
-  .force('collision', d3.forceCollide(d){ return x(+d['release year']);})
+  .force('collision', d3.forceCollide().radius(function(d){ return radius(d['user rating score']);})
   .on('tick', ticked);
 
 
@@ -48,7 +48,7 @@ d3.csv('data/netflix.csv').then(data=>{
     x.domain([d3.min(years), d3.max(years)]);
 	radius.domain([d3.min(rating), d3.max(rating)]);
     // Part 1 - создайте circles на основе data
-
+    simulation.nodes(data)
     // Part 1 - передайте данные в симуляцию и добавьте обработчик события tick
     function ticked() {
     var nodes = bubble
@@ -72,9 +72,6 @@ d3.csv('data/netflix.csv').then(data=>{
     })
 	.attr('stroke', 'gray')
     .style('stroke-width', '0px')
-	 // добавьте обработчики событий mouseover и mouseout
-            // .on('mouseover', overBubble)
-            // .on('mouseout', outOfBubble);
     .on('mouseover', overBubble)
     .on('mouseout', outOfBubble)
 	
@@ -84,15 +81,29 @@ d3.csv('data/netflix.csv').then(data=>{
 
     // Part 1 - Создайте шаблон при помощи d3.pie на основе ratings
     var pie = d3.layout.pie()
-    .value(function(d) { return d.value; });
+    .value(function(d) { return d.value.value; });
     
     // Part 1 - Создайте генератор арок при помощи d3.arc
-    var arc = d3.svg.arc()
+    var arcGenerator = d3.arc()
     .outerRadius(100).innerRadius(140);;
-    
+   /*  var pathData = rcGenerator({
+	startAngle: 0,
+	endAngle: Math.PI / 4 */
+});
     // Part 1 - постройте donut chart внутри donut
     // ..
-
+	var pie_ratings = pie(d3.entries(ratings))
+    donut.selectAll('whatever')
+      .data(pie_ratings)
+      .enter()
+      .append('path')
+      .attr('d', arcGenerator)
+      .attr('fill', function(d) { return(color(d.data.value.key)) })
+      .attr("stroke", "white")
+      .style("stroke-width", "2px")
+      .style("opacity", '1')
+      .on('mouseover', overArc)
+      .on('mouseout', outOfArc);
     // добавьте обработчики событий mouseover и mouseout
         //.on('mouseover', overArc)
         //.on('mouseout', outOfArc);
