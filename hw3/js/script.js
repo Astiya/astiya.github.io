@@ -123,7 +123,7 @@ d3.csv('data/netflix.csv').then(data=>{
         d3.select(this).style('stroke-width', '5px');
         // Part 3 - обновите содержимое tooltip с использованием классов title и year
         // ..
-
+  
         // Part 3 - измените display и позицию tooltip
         // ..
     }
@@ -140,7 +140,7 @@ d3.csv('data/netflix.csv').then(data=>{
         // Part 2 - измените содержимое donut_lable
         
         // Part 2 - измените opacity арки
-        d3.select(this).style('opacity', '5px');
+        d3.select(this).style('opacity', '0.3');
 
         // Part 3 - измените opacity, stroke и stroke-width для circles в зависимости от rating
         // ..
@@ -149,7 +149,7 @@ d3.csv('data/netflix.csv').then(data=>{
         // Part 2 - измените содержимое donut_lable
         // ..
         // Part 2 - измените opacity арки
-        d3.select(this).style('opacity', '0px');
+        d3.select(this).style('opacity', '1');
 
         // Part 3 - верните opacity, stroke и stroke-width для circles
         // ..
