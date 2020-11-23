@@ -142,7 +142,7 @@ d3.csv('data/netflix.csv').then(data=>{
         )
         // Part 3 - измените display и позицию tooltip
         tooltip
-		.style("top", (d.y - 50) + "px") 
+		.style("top", (d.y - 100) + "px") 
         .style("left", d.x  + "px") 
         .style('display', 'block')
     }
@@ -164,9 +164,9 @@ d3.csv('data/netflix.csv').then(data=>{
         donut_lable.text(gg).attr('text-anchor', 'middle')
 		// .style("color", '#FFFFFF');
         // Part 2 - измените opacity арки
-        d3.select(this).style('opacity', '0.2');
+        // d3.select(this).style('opacity', '0.2');
 		d3.select(this).style('stroke', 'white');
-		
+		d3.select(this).style('opacity', '0.2');
 // console.log(d.data.value.key)
         // Part 3 - измените opacity, stroke и stroke-width для circles в зависимости от rating
        
