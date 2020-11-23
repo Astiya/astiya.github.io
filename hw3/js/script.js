@@ -87,7 +87,8 @@ d3.csv('data/netflix.csv').then(data=>{
 
 
     // Part 1 - Создайте шаблон при помощи d3.pie на основе ratings
-    var pie = d3.layout.pie()
+    // var pie = d3.layout.pie()
+	var pie = d3.pie()
     .value(function(d) { return d.value.value; });
     
     // Part 1 - Создайте генератор арок при помощи d3.arc
