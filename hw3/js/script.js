@@ -27,6 +27,7 @@ const tooltip = d3.select('.tooltip');
 
 //  Part 1 - Создайте симуляцию с использованием forceCenter, forceX и forceCollide
    const simulation = d3.forceSimulation()
+  simulation.nodes(data)
   .force('center', d3.forceCenter(b_width / 2, b_height / 2))
   .force('x', d3.forceX().x(function(d){ return x(+d['release year']);}))
   .force('collision', d3.forceCollide().radius(function(d){ return radius(d['user rating score']);}))
@@ -48,7 +49,7 @@ d3.csv('data/netflix.csv').then(data=>{
     x.domain([d3.min(years), d3.max(years)]);
 	radius.domain([d3.min(rating), d3.max(rating)]);
     // Part 1 - создайте circles на основе data
-    simulation.nodes(data)
+    // simulation.nodes(data)
     // Part 1 - передайте данные в симуляцию и добавьте обработчик события tick
     function ticked() {
     var nodes = bubble
@@ -130,7 +131,7 @@ d3.csv('data/netflix.csv').then(data=>{
     function overArc(d){
         console.log(d)
         // Part 2 - измените содержимое donut_lable
-        // ..
+        
         // Part 2 - измените opacity арки
         // ..
 
