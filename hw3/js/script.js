@@ -200,6 +200,6 @@ d3.csv('data/netflix.csv').then(data=>{
         bubble.selectAll('circle')
 		.style('opacity', '1')
 		.style('stroke', '')
-		.style('stroke-width', 0px);
+		.style('stroke-width', '0px');
     }
 });
