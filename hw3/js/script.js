@@ -28,7 +28,7 @@ const tooltip = d3.select('.tooltip');
 //  Part 1 - Создайте симуляцию с использованием forceCenter, forceX и forceCollide
    const simulation = d3.forceSimulation(nodes)
   .force('center', d3.forceCenter(b_width / 2, b_height / 2))
-  .force('x', d3.forceX(d){ return x(+d['release year']);})
+  .force('x', d3.forceX().x(function(d){ return x(+d['release year']);}))
   .force('collision', d3.forceCollide().radius(function(d){ return radius(d['user rating score']);})
   .on('tick', ticked);
 
