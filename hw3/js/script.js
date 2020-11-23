@@ -166,13 +166,13 @@ d3.csv('data/netflix.csv').then(data=>{
         // Part 2 - измените opacity арки
         d3.select(this).style('opacity', '0.2');
 		d3.select(this).style('stroke', 'white');
-		// var gg = d.data.value.key
+		var gg = d.data.value.key
 // console.log(d.data.value.key)
         // Part 3 - измените opacity, stroke и stroke-width для circles в зависимости от rating
        
 	   bubble.selectAll('circle')
             .style('opacity', function(d) {
-                if (d.rating == d.data.value.key) 
+                if (d.rating == gg) 
 				{ 
 				   return '1'; 
 				} 
@@ -182,28 +182,28 @@ d3.csv('data/netflix.csv').then(data=>{
 				}
               }
             )
-            // .style('stroke', function(d) {
-                // if (d.rating == d.value.value) 
-				// { 
-				   // return 'white'; 
-				// } 
-				// else 
-				// { 
-				   // return ''; 
-				// }
-              // }
-            // )
-            // .style('stroke-width', function(d) {
-                // if (d.rating == d.value.value) 
-				// { 
-				   // return '5px'; 
-				// } 
-				// else 
-				// { 
-				   // return '0px'; 
-				// }
-              // }
-            // );		
+            .style('stroke', function(d) {
+                if (d.rating == gg) 
+				{ 
+				   return 'white'; 
+				} 
+				else 
+				{ 
+				   return ''; 
+				}
+              }
+            )
+            .style('stroke-width', function(d) {
+                if (d.rating == gg) 
+				{ 
+				   return '5px'; 
+				} 
+				else 
+				{ 
+				   return '0px'; 
+				}
+              }
+            );		
 			
     }
     function outOfArc(){
@@ -216,7 +216,7 @@ d3.csv('data/netflix.csv').then(data=>{
         // Part 3 - верните opacity, stroke и stroke-width для circles
         bubble.selectAll('circle')
 		.style('opacity', '1')
-		// .style('stroke', '')
-		// .style('stroke-width', '0px');
+		.style('stroke', '')
+		.style('stroke-width', '0px');
     }
 });
