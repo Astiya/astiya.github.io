@@ -92,7 +92,11 @@ d3.csv('data/netflix.csv').then(data=>{
     
     // Part 1 - Создайте генератор арок при помощи d3.arc
     var arcGenerator = d3.arc()
-    .outerRadius(70).innerRadius(200);;
+    .outerRadius(70).innerRadius(200);
+	
+	// var outerArc = d3.arc()
+   // .innerRadius(radius * 0.9)
+   // .outerRadius(radius * 0.9)
    /*  var pathData = rcGenerator({
 	startAngle: 0,
 	endAngle: Math.PI / 4 */
@@ -147,7 +151,7 @@ d3.csv('data/netflix.csv').then(data=>{
     function overArc(d){
         console.log(d)
         // Part 2 - измените содержимое donut_lable
-        donut_lable.text(d.data.value.key);
+        donut_lable.text(d.data.value.key).style('text-anchor', 'white');
         // Part 2 - измените opacity арки
         d3.select(this).style('opacity', '0.3');
 
@@ -192,7 +196,7 @@ d3.csv('data/netflix.csv').then(data=>{
     }
     function outOfArc(){
         // Part 2 - измените содержимое donut_lable
-        donut_lable.text('');
+        donut_lable.text('').style('text-anchor', '');;
         // Part 2 - измените opacity арки
         d3.select(this).style('opacity', '1');
 
