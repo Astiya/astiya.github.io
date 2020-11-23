@@ -60,10 +60,7 @@ d3.csv('data/netflix.csv').then(data=>{
     var nodes = bubble
         .selectAll("circle")
 		.data(data)
-  // function ticked() {
-  // var u = d3.select('svg')
-    // .selectAll('circle')
-    // .data(data)
+  
 
   nodes.enter()
     .append('circle')
