@@ -162,9 +162,9 @@ d3.csv('data/netflix.csv').then(data=>{
         var gg = d.data.value.key
         // Part 2 - измените содержимое donut_lable
         donut_lable.text(gg).attr('text-anchor', 'middle')
-		// .style("color", '#FFFFFF');
+		
         // Part 2 - измените opacity арки
-        // d3.select(this).style('opacity', '0.2');
+        
 		d3.select(this).style('stroke', 'white');
 		d3.select(this).style('opacity', '0.2');
 // console.log(d.data.value.key)
