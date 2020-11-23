@@ -140,7 +140,7 @@ d3.csv('data/netflix.csv').then(data=>{
         // Part 2 - измените содержимое donut_lable
         
         // Part 2 - измените opacity арки
-        // ..
+        d3.select(this).style('opacity', '5px');
 
         // Part 3 - измените opacity, stroke и stroke-width для circles в зависимости от rating
         // ..
@@ -149,7 +149,7 @@ d3.csv('data/netflix.csv').then(data=>{
         // Part 2 - измените содержимое donut_lable
         // ..
         // Part 2 - измените opacity арки
-        // ..
+        d3.select(this).style('opacity', '0px');
 
         // Part 3 - верните opacity, stroke и stroke-width для circles
         // ..
