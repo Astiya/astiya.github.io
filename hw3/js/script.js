@@ -157,7 +157,7 @@ d3.csv('data/netflix.csv').then(data=>{
         // Part 2 - измените содержимое donut_lable
         donut_lable.text(d.data.value.key).style("color", '#FFFFFF');
         // Part 2 - измените opacity арки
-        d3.select(this).style('opacity', '0.3');
+        d3.select(this).style('opacity', '0.2');
 console.log(d.data.value.key)
         // Part 3 - измените opacity, stroke и stroke-width для circles в зависимости от rating
         bubble.selectAll('circle')
@@ -168,11 +168,12 @@ console.log(d.data.value.key)
 				} 
 				else 
 				{ 
-				   return '0.3'; 
+				   return '0.2'; 
 				}
               }
-            );
-		bubble.selectAll('circle')
+            )
+			// ;
+		// bubble.selectAll('circle')
             .style('stroke', function(d) {
                 if (d.rating == d.data.value.key) 
 				{ 
@@ -183,8 +184,9 @@ console.log(d.data.value.key)
 				   return ''; 
 				}
               }
-            );	
-		bubble.selectAll('circle')
+            )
+			// ;	
+		// bubble.selectAll('circle')
             .style('stroke-width', function(d) {
                 if (d.rating == d.data.value.key) 
 				{ 
