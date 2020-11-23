@@ -92,7 +92,7 @@ d3.csv('data/netflix.csv').then(data=>{
     
     // Part 1 - Создайте генератор арок при помощи d3.arc
     var arcGenerator = d3.arc()
-    .outerRadius(100).innerRadius(140);;
+    .outerRadius(100).innerRadius(340);;
    /*  var pathData = rcGenerator({
 	startAngle: 0,
 	endAngle: Math.PI / 4 */
@@ -119,7 +119,7 @@ d3.csv('data/netflix.csv').then(data=>{
         console.log(d)
         // Part 2 - задайте stroke и stroke-width для выделяемого элемента   
         // ..
-        
+        d3.select(this).style('stroke-width', '5px');
         // Part 3 - обновите содержимое tooltip с использованием классов title и year
         // ..
 
