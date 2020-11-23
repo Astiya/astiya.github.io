@@ -77,7 +77,7 @@ d3.csv('data/netflix.csv').then(data=>{
     .attr('cy', function(d) {
       return d.y
     })
-	.attr('stroke', 'gray')
+	.attr('stroke', 'white')
     .style('stroke-width', '0px')
     .on('mouseover', overBubble)
     .on('mouseout', outOfBubble)
