@@ -113,6 +113,7 @@ d3.csv('data/netflix.csv').then(data=>{
       .attr("stroke", "black")
       .style("stroke-width", "4px")
       .style("opacity", '1')
+	  .style("border-radius", '30px')
 	  // .append("title").text(d => `${d.data.name}: ${d.data.value.toLocaleString()}`);
       .on('mouseover', overArc)
       .on('mouseout', outOfArc);
