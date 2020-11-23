@@ -163,11 +163,13 @@ d3.csv('data/netflix.csv').then(data=>{
 		// .style("color", '#FFFFFF');
         // Part 2 - измените opacity арки
         d3.select(this).style('opacity', '0.2');
+		var gg = d.data.value.key
 // console.log(d.data.value.key)
         // Part 3 - измените opacity, stroke и stroke-width для circles в зависимости от rating
-        bubble.selectAll('circle')
+       
+	   bubble.selectAll('circle')
             .style('opacity', function(d) {
-                if (d.rating == d.value.value) 
+                if (d.rating == gg) 
 				{ 
 				   return '1'; 
 				} 
