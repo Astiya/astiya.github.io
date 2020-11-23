@@ -18,7 +18,8 @@ h1{
     display: none;
 }
 .donut-lable{
-    font-size: 40px;
+    font-size: 20px;
+	color: #FFFFFF;
 }
 .title{
     font-size: 20px;
