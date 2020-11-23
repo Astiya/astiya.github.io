@@ -151,7 +151,7 @@ d3.csv('data/netflix.csv').then(data=>{
     function overArc(d){
         console.log(d)
         // Part 2 - измените содержимое donut_lable
-        donut_lable.text(d.data.value.key).style('text-anchor', 'white');
+        donut_lable.text(d.data.value.key);
         // Part 2 - измените opacity арки
         d3.select(this).style('opacity', '0.3');
 
@@ -196,7 +196,7 @@ d3.csv('data/netflix.csv').then(data=>{
     }
     function outOfArc(){
         // Part 2 - измените содержимое donut_lable
-        donut_lable.text('').style('text-anchor', '');;
+        donut_lable.text('');
         // Part 2 - измените opacity арки
         d3.select(this).style('opacity', '1');
 
