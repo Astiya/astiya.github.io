@@ -99,7 +99,7 @@ d3.csv('data/netflix.csv').then(data=>{
 	endAngle: Math.PI / 4 */
 // });
     // Part 1 - постройте donut chart внутри donut
-    // ..
+
 	var pie_ratings = pie(d3.entries(ratings))
     donut.selectAll('whatever')
       .data(pie_ratings)
@@ -164,7 +164,7 @@ d3.csv('data/netflix.csv').then(data=>{
         
 		d3.select(this).style('stroke', 'white');
 		d3.select(this).style('opacity', '0.2');
-// console.log(d.data.value.key)
+        console.log(d.data.value.key)
         // Part 3 - измените opacity, stroke и stroke-width для circles в зависимости от rating
        
 	   bubble.selectAll('circle')
