@@ -136,6 +136,8 @@ d3.csv('data/netflix.csv').then(data=>{
         )
         // Part 3 - измените display и позицию tooltip
         tooltip
+		.style("top", (d.y - 90) + "px") 
+        .style("left", d.x  + "px") 
         .style('display', 'block')
     }
     function outOfBubble(){
@@ -145,8 +147,8 @@ d3.csv('data/netflix.csv').then(data=>{
             
         // Part 3 - измените display у tooltip
         tooltip
-		.style("top", (d.y - 90) + "px") 
-        .style("left", d.x  + "px") 
+		// .style("top", (d.y - 90) + "px") 
+        // .style("left", d.x  + "px") 
         .style('display', 'none')
     }
 
@@ -156,7 +158,7 @@ d3.csv('data/netflix.csv').then(data=>{
         donut_lable.text(d.data.value.key).style("color", '#FFFFFF');
         // Part 2 - измените opacity арки
         d3.select(this).style('opacity', '0.3');
-
+console.log(d.data.value.key)
         // Part 3 - измените opacity, stroke и stroke-width для circles в зависимости от rating
         bubble.selectAll('circle')
             .style('opacity', function(d) {
