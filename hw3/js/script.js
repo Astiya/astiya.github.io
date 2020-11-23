@@ -92,7 +92,7 @@ d3.csv('data/netflix.csv').then(data=>{
     
     // Part 1 - Создайте генератор арок при помощи d3.arc
     var arcGenerator = d3.arc()
-    .outerRadius(100).innerRadius(200);
+    .outerRadius(100).innerRadius(260);
 	
 	// var outerArc = d3.arc()
    // .innerRadius(radius * 0.9)
