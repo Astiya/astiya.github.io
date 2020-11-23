@@ -159,14 +159,14 @@ d3.csv('data/netflix.csv').then(data=>{
     }
 
     function overArc(d){
-        // console.log(d)
+        var gg = d.data.value.key
         // Part 2 - измените содержимое donut_lable
-        donut_lable.text(d.data.value.key).attr('text-anchor', 'middle')
+        donut_lable.text(gg).attr('text-anchor', 'middle')
 		// .style("color", '#FFFFFF');
         // Part 2 - измените opacity арки
         d3.select(this).style('opacity', '0.2');
 		d3.select(this).style('stroke', 'white');
-		var gg = d.data.value.key
+		
 // console.log(d.data.value.key)
         // Part 3 - измените opacity, stroke и stroke-width для circles в зависимости от rating
        
