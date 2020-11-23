@@ -113,6 +113,7 @@ d3.csv('data/netflix.csv').then(data=>{
       .attr("stroke", "black")
       .style("stroke-width", "4px")
       .style("opacity", '1')
+	  // .append("title").text(d => `${d.data.name}: ${d.data.value.toLocaleString()}`);
       .on('mouseover', overArc)
       .on('mouseout', outOfArc);
     // добавьте обработчики событий mouseover и mouseout
@@ -209,6 +210,7 @@ d3.csv('data/netflix.csv').then(data=>{
         donut_lable.text('');
         // Part 2 - измените opacity арки
         d3.select(this).style('opacity', '1');
+		d3.select(this).style('stroke', '');
 
         // Part 3 - верните opacity, stroke и stroke-width для circles
         bubble.selectAll('circle')
