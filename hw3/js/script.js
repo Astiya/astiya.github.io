@@ -54,7 +54,7 @@ d3.csv('data/netflix.csv').then(data=>{
   .force('center', d3.forceCenter(b_width / 2, b_height / 2))
   .force('x', d3.forceX().x(function(d){ return x(+d['release year']);}))
   .force('collision', d3.forceCollide().radius(function(d){ return radius(d['user rating score']);}))
-  .on('tick', ticked)
+  .on('tick', ticked);
   
   function ticked() {
     var nodes = bubble
@@ -123,7 +123,7 @@ d3.csv('data/netflix.csv').then(data=>{
 		d3.select(this).style('stroke', 'white');
         // Part 3 - обновите содержимое tooltip с использованием классов title и year
         // ..
-    tooltip.html(
+        tooltip.html(
           "<b>" + 
           d['title'] + 
           "</b>" + 
@@ -147,26 +147,48 @@ d3.csv('data/netflix.csv').then(data=>{
     function overArc(d){
         console.log(d)
         // Part 2 - измените содержимое donut_lable
-        donut_lable.text(d.value.value);
+        donut_lable.text(d.data.value.key);
         // Part 2 - измените opacity арки
         d3.select(this).style('opacity', '0.3');
 
         // Part 3 - измените opacity, stroke и stroke-width для circles в зависимости от rating
         bubble.selectAll('circle')
-            .style('opacity', function(dat) {
-                if (dat.rating == d.value.value) { return '1'; } else { return '0.3'; }
+            .style('opacity', function(d) {
+                if (d.rating == d.data.value.key) 
+				{ 
+				   return '1'; 
+				} 
+				else 
+				{ 
+				   return '0.3'; 
+				}
               }
             );
 		bubble.selectAll('circle')
-            .style('stroke', function(dat) {
-                if (dat.rating == d.value.value) { return 'white'; } else { return ''; }
+            .style('stroke', function(d) {
+                if (d.rating == d.data.value.key) 
+				{ 
+				   return 'white'; 
+				} 
+				else 
+				{ 
+				   return ''; 
+				}
               }
-            );
+            );	
 		bubble.selectAll('circle')
-            .style('stroke-width', function(dat) {
-                if (dat.rating == d.value.value) { return '5px'; } else { return '0px'; }
+            .style('stroke-width', function(d) {
+                if (d.rating == d.data.value.key) 
+				{ 
+				   return '5px'; 
+				} 
+				else 
+				{ 
+				   return '0px'; 
+				}
               }
-            );
+            );		
+			
     }
     function outOfArc(){
         // Part 2 - измените содержимое donut_lable
@@ -175,8 +197,9 @@ d3.csv('data/netflix.csv').then(data=>{
         d3.select(this).style('opacity', '1');
 
         // Part 3 - верните opacity, stroke и stroke-width для circles
-        bubble.selectAll('circle').style('opacity', 0.3);
-		bubble.selectAll('circle').style('stroke', '');
-		bubble.selectAll('circle').style('stroke-width', 0px);
+        bubble.selectAll('circle')
+		.style('opacity', '1')
+		.style('stroke', '')
+		.style('stroke-width', 0px);
     }
 });
