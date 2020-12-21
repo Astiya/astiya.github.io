@@ -136,16 +136,6 @@
                     var bar_chart = d3.select('g.slider').selectAll("rect")
                         .data(new_data)
 					
-					bar_chart.enter()
-                        .append("rect")
-                        .merge(u)
-                        .transition()
-                        .duration(800)
-                        .attr("x", function(d) { return x(d.year); })
-                        .attr("y", function(d) { return y(d.value); })
-                        .attr("width", x.bandwidth())
-                        .attr("height", function(d) { return sliderHeight - y(d.value); })
-                        .attr("fill", "#87CEEB")
 
                     
                     // Part 3: обновите шкалу в легенде на основе выбранных параметров
