@@ -1,6 +1,7 @@
 body{
     margin: 0px;
     overflow: hidden;
+	background: #000000;
 }
 #year{
     position: absolute;
@@ -29,4 +30,11 @@ rect{
 }
 g.parameter-value path:focus{
     outline: none;
+}
+h1{
+    position: absolute;
+    top: 0px; left: 40%;
+    
+    font-size: 40px;
+    color: #DB202C;
 }
