@@ -35,7 +35,7 @@
                 const years = Object.keys(data[0][param]).map(d=>+d).filter(d=>d);
                 
                 // Part 1: создайте линейную цветовую шкалу на основе цветов
-                const color =  = d3.scaleLinear()
+                const color = d3.scaleLinear()
                 let paramRange = data.map(d => +d[param][year])
                 color.domain([d3.min(paramRange), d3.max(paramRange)]).range(colors)
                 // Part 2: создайте шкалы х и y
