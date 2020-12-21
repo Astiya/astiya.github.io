@@ -99,14 +99,14 @@
                        .enter()
                        .append("path")
                        .attr("d", Generator.projection(geoEqu))
-                       .on('mouseover', overPolygon)
-                       .on('mouseout', outPolygon)
+                       .on('mouseover', over)
+                       .on('mouseout', out)
 					   
                 
                 // Part 1: добавьте обработчики событий мыши для отображения имени страны в элементе #country
                 // ...
-                function over(d){d3.select('#country').style('font-size', '18pt')..text(d3.select(this)['_groups'][0][0]['__data__']['properties']['name']);;}
-				function out(d){d3.select('#country').text("");}
+                function over(d){d3.select('#country').style('font-size', '18pt').text(d3.select(this)['_groups'][0][0]['__data__']['properties']['name']);;}
+				function out(){d3.select('#country').text("");}
                 function update(){
                     d3.select('#year').text(year);
                     // после создания цветовой шкалы можно будет обновить ее домен
