@@ -1,7 +1,7 @@
 body{
     margin: 0px;
     overflow: hidden;
-	background: #000000;
+	background: #FFFFFF;
 }
 #year{
     position: absolute;
@@ -37,5 +37,5 @@ h1{
     top: 0px; left: 40%;
     text-align: center;
     font-size: 40px;
-    color: #DB202C;
+    color: #000000;
 }
