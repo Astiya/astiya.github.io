@@ -88,7 +88,7 @@
 
                 // Part 1: создайте проекцию d3.geoEquirectangular() и подстройте ее под размеры экрана, а также
                 // создайте генератор пути
-                const geoEqu = d3.geoEquirectangular().scale(height / 1.5 / Math.PI).rotate([0, 0]).center([0, 0]).translate([width / 2, height / 2])
+                var geoEqu = d3.geoEquirectangular().scale(height / 1.5 / Math.PI).rotate([0, 0]).center([0, 0]).translate([width / 2, height / 2])
 				let Generator = d3.geoPath()
 				
 
