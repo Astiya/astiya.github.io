@@ -34,7 +34,8 @@ g.parameter-value path:focus{
 }
 h1{
     position: absolute;
-    text-align: center;
+    top: 0px; left: 40%;
+
     font-size: 40px;
     color: #000000;
 }
