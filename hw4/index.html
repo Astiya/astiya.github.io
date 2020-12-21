@@ -35,27 +35,29 @@
                 const years = Object.keys(data[0][param]).map(d=>+d).filter(d=>d);
                 
                 // Part 1: создайте линейную цветовую шкалу на основе цветов
-                //  const color = ...
-
+                const color =  = d3.scaleLinear()
+                let paramRange = data.map(d => +d[param][year])
+                color.domain([d3.min(paramRange), d3.max(paramRange)]).range(colors)
                 // Part 2: создайте шкалы х и y
-                //const x = d3.scaleBand(years, [0, width]).padding(.1);
-                // y = d3.scaleLinear().range([sliderHeight, 0]);
+                const x = d3.scaleBand(years, [0, width]).padding(.1);
+                y = d3.scaleLinear().range([sliderHeight, 0]);
                 
                 // Part 3: создайте svg внутри #menu и добавить туда легенду
-                // const legend = d3.select('#menu').append('svg')
-                //     .attr('width', 200).attr("height", 40)
-                // let gradient = legend.append('defs')
-                //     .append("svg:linearGradient")
-                //         .attr("id", "gradient");
+                const legend = d3.select('#menu').append('svg').attr('width', 200).attr("height", 40)
+                let gradient = legend.append('defs').append("svg:linearGradient").attr("id", "gradient");
 
-                // gradient.append('stop')...
-                // gradient.append('stop')...
+                gradient.append('stop').attr("offset", "0%")
+                        .attr("stop-color", '#d73027')
+                        .attr("stop-opacity", 1);
+                gradient.append('stop').attr("offset", "100%")
+                        .attr("stop-color", '#1a9850')
+                        .attr("stop-opacity", 1);
 
-                // legend.append('rect')
-                //     .attr('width', 200).attr("height", 20)
-                //     .style("fill", "url(#gradient)");
+                legend.append('rect')
+                        .attr('width', 200).attr("height", 20)
+                        .style("fill", "url(#gradient)");
 
-                // const axis = legend.append('g').attr('id','axis').attr('transform', 'translate(0,20)');
+                const axis = legend.append('g').attr('id','axis').attr('transform', 'translate(0,20)');
 
                 d3.selectAll('input[name="param"]').on('change',function(){
                     param = this.value;
@@ -86,37 +88,83 @@
 
                 // Part 1: создайте проекцию d3.geoEquirectangular() и подстройте ее под размеры экрана, а также
                 // создайте генератор пути
-                // ...
+                const geoEqu = d3.geoEquirectangular().scale(height / 1.5 / Math.PI).rotate([0, 0]).center([0, 0]).translate([width / 2, height / 2])
+				let Generator = d3.geoPath()
+				
 
                 // Part 1: добавьте карту мира при помощи генератора пути
-                // const map = ...
+                const map = svg.append("g") 
+                       .selectAll("path") 
+                       .data(world.features)
+                       .enter()
+                       .append("path")
+                       .attr("d", Generator.projection(geoEqu))
+                       .on('mouseover', overPolygon)
+                       .on('mouseout', outPolygon)
+					   
                 
                 // Part 1: добавьте обработчики событий мыши для отображения имени страны в элементе #country
                 // ...
-
+                function over(d){d3.select('#country').style('font-size', '18pt')..text(d3.select(this)['_groups'][0][0]['__data__']['properties']['name']);;}
+				function out(d){d3.select('#country').text("");}
                 function update(){
                     d3.select('#year').text(year);
-
                     // после создания цветовой шкалы можно будет обновить ее домен
-                    //color.domain(d3.extent(data.map(d=>+d[param][year])));
+                    color.domain(d3.extent(data.map(d=>+d[param][year])));
 
-                    // map.attr('fill', feature =>{
+                    map.attr('fill', feature =>{
                     //         // находим страну в наборе данных
-                    //         let country = data.find(d=>d.geo === feature.id.toLowerCase());
+                             let country = data.find(d=>d.geo === feature.id.toLowerCase());
                     //         // Part 1: задайте цвет полигона в зависимости от выбранных параметров
-                    //         // ...
-                    //     });
+                              if (typeof country !== 'undefined')
+							{
+                                return color(+country[param][year])
+                            }
+                            else
+							{
+                                return noColor
+                            } 
+                         });
 
                     let array = years.map(y=>d3.sum(data.map(d=>+d[param][y])));
                     // Part 2: обновьте домен шкалы y
-                    // ...
+                    y.domain([0, d3.max(array)])
+					new_data = years.map((year_val, i) => ({year: year_val, value: array[i]}))
 
                     // Part 2: реализуйте создание и обновление барчарта
-                    // ...
+                    var bar_chart = d3.select('g.slider').selectAll("rect")
+                        .data(new_data)
+					
+					bar_chart.enter()
+                        .append("rect")
+                        .merge(u)
+                        .transition()
+                        .duration(800)
+                        .attr("x", function(d) { return x(d.year); })
+                        .attr("y", function(d) { return y(d.value); })
+                        .attr("width", x.bandwidth())
+                        .attr("height", function(d) { return sliderHeight - y(d.value); })
+                        .attr("fill", "#4773ad")
 
                     
                     // Part 3: обновите шкалу в легенде на основе выбранных параметров
-                    // ...
+                    paramRange = data.map(d=> +d[param][year]);
+                    paramRangeMax = d3.max(paramRange)
+                    paramRangeMin = d3.min(paramRange)
+                    var gradScale = d3.scaleLinear()
+                        .range([0, 100])
+                        .domain([paramRangeMin, paramRangeMax]);
+						
+						
+                    var yAxis = d3.axisBottom()
+                        .scale(gradScale)
+                        .tickValues([
+                            (paramRangeMax - paramRangeMin) / 5.0 * 1,
+                            (paramRangeMax - paramRangeMin) / 5.0 * 2,
+                            (paramRangeMax - paramRangeMin) / 5.0 * 3,
+                            (paramRangeMax - paramRangeMin) / 5.0 * 4,
+                        ])
+                     axis.call(yAxis)
                 }
                 
                 update();
